@@ -1,20 +1,16 @@
-import logo from "@/assets/falcodevs-logo.png";
+const falcodevsLogo =
+  "https://falcodevs.blob.core.windows.net/falcodevs-images/falcodevs-logo-fd.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-secondary py-12">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col items-center justify-center space-y-4">
-          <div className="flex items-center gap-3">
-            <img src={logo} alt="FalcoDevs" className="h-8 w-8" />
-            <span className="text-lg font-bold text-secondary-foreground">
-              FalcoDevs SpA
-            </span>
+    <footer className="bg-secondary text-secondary-foreground">
+      <div className="container mx-auto px-4 py-10">
+        <div className="flex flex-col items-center gap-3 text-center">
+      <div className="flex items-center gap-3">
+        <img src={falcodevsLogo} alt="FalcoDevs" className="h-8 w-8 object-contain" />
+            <span className="text-lg font-semibold">FalcoDevs</span>
           </div>
-          
-          <p className="text-sm text-muted-foreground">
-            © 2025 FalcoDevs SpA. Todos los derechos reservados.
-          </p>
+          <p className="text-sm text-secondary-foreground/80">FalcoDevs SpA © 2025</p>
         </div>
       </div>
     </footer>
