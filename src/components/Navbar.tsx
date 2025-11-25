@@ -3,13 +3,8 @@ import { Menu, Moon, Sun, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/hooks/useTheme";
 
-// ⬇️ Usa UNO de estos según tu estructura:
-
-// Opción 1: si el logo está en public/logoHome.png
-// const falcodevsLogo = "/logoHome.png";
-
-// Opción 2: si el logo está en src/assets/logoHome.png
-import falcodevsLogo from "@/assets/logoHome.png";
+// ✅ Ruta correcta del logo (archivo en public/logoHome.png)
+const falcodevsLogo = "/logoHome.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,7 +28,8 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/90 backdrop-blur-xl shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* BRAND FALCODEVS */}
+
+          {/* BRAND */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="flex items-center gap-3 group"
@@ -41,7 +37,7 @@ const Navbar = () => {
             <img
               src={falcodevsLogo}
               alt="FalcoDevs"
-              className="h-9 w-9 md:h-10 md:w-10 object-contain drop-shadow-[0_0_12px_rgba(0,200,255,0.55)]"
+              className="h-9 w-9 md:h-10 md:w-10 object-contain drop-shadow-[0_0_10px_rgba(0,200,255,0.45)] transition-transform group-hover:scale-105"
             />
             <span className="text-xl md:text-2xl font-semibold tracking-tight">
               <span className="text-foreground">Falco</span>
@@ -49,7 +45,7 @@ const Navbar = () => {
             </span>
           </button>
 
-          {/* NAV DESKTOP */}
+          {/* DESKTOP NAV */}
           <div className="hidden md:flex items-center space-x-10 text-sm font-medium">
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
@@ -57,18 +53,22 @@ const Navbar = () => {
             >
               Inicio
             </button>
+
             <button
               onClick={() => scrollToSection("servicios")}
               className="relative text-foreground transition-colors hover:text-primary"
             >
               Servicios
             </button>
+
             <button
               onClick={() => scrollToSection("contacto")}
               className="relative text-foreground transition-colors hover:text-primary"
             >
               Contacto
             </button>
+
+            {/* THEME SWITCHER */}
             <Button
               variant="ghost"
               size="icon"
@@ -84,7 +84,7 @@ const Navbar = () => {
             </Button>
           </div>
 
-          {/* NAV MÓVIL */}
+          {/* MOBILE NAV */}
           <div className="flex items-center gap-3 md:hidden">
             <Button
               variant="ghost"
@@ -99,6 +99,7 @@ const Navbar = () => {
                 <Moon className="h-5 w-5" />
               )}
             </Button>
+
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-foreground transition-colors hover:text-primary"
@@ -109,6 +110,7 @@ const Navbar = () => {
           </div>
         </div>
 
+        {/* MOBILE MENU */}
         {isOpen && (
           <div className="md:hidden pb-6 space-y-4 animate-in slide-in-from-top-2">
             <button
@@ -120,12 +122,14 @@ const Navbar = () => {
             >
               Inicio
             </button>
+
             <button
               onClick={() => scrollToSection("servicios")}
               className="block w-full text-left rounded-lg border border-border bg-card px-4 py-3 text-foreground shadow-soft hover:border-primary/50 hover:shadow-strong"
             >
               Servicios
             </button>
+
             <button
               onClick={() => scrollToSection("contacto")}
               className="block w-full text-left rounded-lg border border-border bg-card px-4 py-3 text-foreground shadow-soft hover:border-primary/50 hover:shadow-strong"
